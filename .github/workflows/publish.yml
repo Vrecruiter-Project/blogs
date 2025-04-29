@@ -29,8 +29,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-
-          git add blog_publish_report.md
           git add --all 
           git commit -m "Auto-publish blog HTML and report [$(date)]" || echo "No changes to commit"
           git push
