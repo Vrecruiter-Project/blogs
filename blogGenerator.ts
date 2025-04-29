@@ -85,6 +85,7 @@ class BlogGenerator {
       defaultHeaders: {
         'HTTP-Referer': siteUrl,
         'X-Title': 'Blog Content Generator',
+        'Authorization': `Bearer ${apiKey}`
       },
     });
     this.siteUrl = siteUrl;
