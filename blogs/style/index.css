@@ -1,0 +1,136 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: "semiBoldW";
+    src: url("http://cdn.jsdelivr.net/gh/w3cdpass/static@latest/(blogs)/fonts/Exo2-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: "mediumW";
+    src: url("http://cdn.jsdelivr.net/gh/w3cdpass/static@latest/(blogs)/fonts/Exo2-Medium.ttf");
+}
+
+.page-wrap {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.container {
+    width: 60%;
+    height: auto;
+    background-color: rgb(245, 247, 246);
+    box-shadow: 
+0 1px 3px rgba(0, 0, 0, 0.1),
+0 1px 2px rgba(0, 0, 0, 0.06);
+    padding: 10px;
+}
+
+.hero {
+    display: flex;
+    max-height: 500px;
+    gap: 10px;
+}
+
+.hero img {
+    box-shadow: 10px 10px 15px #ff9e53;
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+    max-height: fit-content;
+    border-radius: 20px;
+
+}
+
+.hero-Content {
+    padding: 10px;
+    width: 50%;
+}
+
+
+h1 {
+    font-family: 'semiBoldW';
+    font-size: 58px;
+}
+
+
+.hero-txt {
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+
+.hero-btn{
+    background: linear-gradient(45deg, rgb(255, 158, 83) 10%, rgb(212, 161, 255) 90%);
+    padding: 20px;
+    border-radius: 20px;
+    font-family: "semiBoldW";
+    color: aliceblue;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+span{font-family: Arial, Helvetica, sans-serif;}
+.latest-section {
+    padding-top: 20px;
+    width: 100%;
+    height: auto;
+}
+
+.latest-cotent {
+    border-bottom: 2px dashed;
+    font-family: "semiBoldW";
+}
+
+.latest-img-Content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.latest-img-Content div>img {
+    width: 100%;
+    object-fit: cover;
+    max-height: 200px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.latest-Content-card > a {
+    text-decoration: none;
+    font-family: "mediumW";
+    font-weight: 600;
+}
+.advetise-1{
+    width: 15%;
+}
+.digibeez-ads{
+    /* max-height: 300px; */
+}
+.digibeez-ads a > img{
+    width: 100%;
+    object-fit: cover;
+    /* max-height: 200px; */
+    border-radius: 10px 0 10px 0;
+}
+.subscribe-btn{
+    background: linear-gradient(45deg, rgb(255, 158, 83) 10%, rgb(212, 161, 255) 90%);
+    padding: 5px 15px 5px 15px;
+    border-radius: 10px;
+    font-family: "semiBoldW";
+    color: aliceblue;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
