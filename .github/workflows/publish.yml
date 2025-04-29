@@ -20,7 +20,10 @@ jobs:
         run: npm install
 
       - name: Create .env file
-        run: echo "${{ secrets.API_KEYS }}" > .env
+        run: |
+          echo "OPENROUTER_API_KEY=${{ secrets.OPENROUTER_API_KEY }}" > .env
+          echo "BASE_URL=${{ secrets.BASE_URL }}" >> .env
+          echo "PIXELS_API=${{ secrets.PIXELS_API }}" >> .env
 
       - name: Run blog generation script
         run: bash run.sh
@@ -33,5 +36,4 @@ jobs:
           git config user.email "github-actions@github.com"
           git add --all
           git commit -m "Auto-publish blog HTML and report [$(date)]" || echo "No changes to commit"
-          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }} HEAD:${{ github.ref_name }}
-
+          git push origin HEAD:${{ github.ref_name }}
