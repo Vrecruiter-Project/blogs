@@ -2,6 +2,7 @@ import OpenAI from 'openai';
 import fs from 'fs';
 import * as dotenv from 'dotenv';
 dotenv.config();
+import axios from 'axios';
 
 interface PexelsPhoto {
   id: number;
@@ -75,20 +76,21 @@ interface BlogContent {
 }
 
 class BlogGenerator {
-  private openai: OpenAI;
   private siteUrl: string;
+  private axiosInstance: any;
 
-  constructor(apiKey: string, siteUrl: string) {
-    this.openai = new OpenAI({
-      baseURL: process.env.BASE_URL,
-      apiKey: apiKey,
-      defaultHeaders: {
+
+ constructor(apiKey: string, siteUrl: string) {
+    this.siteUrl = siteUrl;
+    this.axiosInstance = axios.create({
+      baseURL: 'https://openrouter.ai/api/v1',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
         'HTTP-Referer': siteUrl,
         'X-Title': 'Blog Content Generator',
-        'Authorization': `Bearer ${apiKey}`
-      },
+        'Content-Type': 'application/json'
+      }
     });
-    this.siteUrl = siteUrl;
   }
 
   async generateBlogPost(topic: string): Promise<string> {
@@ -179,28 +181,35 @@ IMPORTANT:
 
 
   private async callOpenRouterAPI(prompt: string): Promise<string> {
-    const completion = await this.openai.chat.completions.create({
-      model: 'deepseek/deepseek-r1-distill-qwen-32b:free',
-      messages: [
-        {
-          role: 'system',
-          content: 'You must respond with ONLY raw JSON output. Do not include any Markdown code blocks or additional text.'
-        },
-        {
-          role: 'user',
-          content: prompt
-        }
-      ],
-      temperature: 0.7,
-      max_tokens: 3000,
-      response_format: { type: 'json_object' }
-    });
 
-    const content = completion.choices[0]?.message?.content;
-    if (!content) {
-      throw new Error('No content in API response');
+    
+    try {
+      const response = await this.axiosInstance.post('/chat/completions', {
+        model: 'openai/gpt-3.5-turbo', // or any other supported model
+        messages: [
+          {
+            role: 'system',
+            content: 'You must respond with ONLY raw JSON output.'
+          },
+          {
+            role: 'user',
+            content: prompt
+          }
+        ],
+        temperature: 0.7,
+        max_tokens: 3000,
+        response_format: { type: 'json_object' }
+      });
+
+      const content = response.data.choices[0]?.message?.content;
+      if (!content) {
+        throw new Error('No content in API response');
+      }
+      return content;
+      
+    } catch (error) {
+      throw error;
     }
-    return content;
   }
 
   private renderTemplate(content: BlogContent): string {
