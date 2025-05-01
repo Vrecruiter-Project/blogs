@@ -1,36 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="[Your Blog Name] - Discover insightful articles on [your topics] with expert analysis and fresh perspectives. Read our latest blog posts today.">
+    <meta name="description"
+        content="[Your Blog Name] - Discover insightful articles on [your topics] with expert analysis and fresh perspectives. Read our latest blog posts today.">
     <meta name="keywords" content="[see keyword list below]">
     <meta name="author" content="Vrecruiters">
     <meta name="robots" content="index, follow">
-    <title>Home - My Website</title>    
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/w3cdpass/static@latest/(blogs)/public/favicon.png" type="image/x-icon">
+    <title>Home - My Website</title>
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/w3cdpass/static@latest/(blogs)/public/favicon.png"
+        type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
     <link rel="stylesheet" href="./blogs/style/index.css">
 </head>
 
 
+<style>
+    .logo_vrec>img {
+        width: 55px;
+        height: 55px;
+        object-fit: cover;
+    }
+
+    
+    .dropdown {
+        position: relative;
+        display: inline block;
+
+    }
+
+    .dropdown-content {
+        display: none;
+        width: 200px;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 120px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        margin-top: 10px;
+    }
+
+    .dropdown-content a {
+        color: #333;
+        padding: 15px 16px;
+        text-decoration: none;
+        display: block;
+        margin-top: -12px;
+    }
+
+    
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+
+    }
+    .home-link{
+        padding-bottom: 20px;
+    }
+    header{
+        margin-top: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    header > nav {
+        font-family: Arial, Helvetica, sans-serif;
+        border-radius: 999px;
+        padding-left: 15px;
+        background-color: #fff;
+        box-shadow: 1px 1px 5px 0 #bfbebe;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+    a {
+        text-decoration: none;
+        color: #333;
+    }
+    .header-nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    .list_ite{
+        font-size: 14px;
+    }
+    
+    .list_ite > a {
+        margin-top: -25px;
+    }
+    .admin_Login{
+        margin-right: 20px;
+    }
+</style>
 
 <body>
+    <header>
+        <nav>
+            <div class="header-nav">
+                <a href="" class="logo_vrec"><img src="https://www.vrecruiters.in/assets/logo_noBgBlack-Cf_903Ap.png"
+                    alt="vrecruiters log"></a>
+            <!-- <a href="">About</a> -->
+            <div class="dropdown">
+                <a href="#" class="home-link">Services <i class="fa-solid fa-angle-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="">Recruitment Services</a>
+<div class="list_ite">
+    <a href="https://www.vrecruiters.in/recruitment/employers">• Employer</a>
+    <a href="https://www.vrecruiters.in/recruitment/candidates">• Candidates</a>
+</div>
+                    
+                    <a href="#">Development Services 
+                        <div class="list_ite">
+                            <a href="https://www.vrecruiters.in/">• Web developer</a>
+                            <a href="https://www.vrecruiters.in/">• Web designer</a>
+                        </div>
+                    </a>
+                    <a href="https://www.vrecruiters.in/career">Carreer Councelling</a>
+                    <a href="https://www.vrecruiters.in/interview">InterView Preparation</a>
+                    <a href="https://www.vrecruiters.in/resume">Resume Builder</a>
+                    <a href="https://www.vrecruiters.in/digitalmarketing">Digital Marketing</a>
+                    <a href="https://www.vrecruiters.in/freeconsultation">Free Consultation</a>
+                </div>
+            </div>
+            <a href="">Community</a>
+            <div class="dropdown">
+                <a href="#" class="home-link">Contact <i class="fa-solid fa-angle-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="https://www.vrecruiters.in/contact">Services</a>
+                    <a href="https://www.vrecruiters.in/candidatecontact">Candidate</a>
+                    <a href="https://www.vrecruiters.in/companycontact">Employer</a>
+                    <a href="https://www.vrecruiters.in/humanresourcescontact">Human Resources</a>
+                    <a href="">Client Contact
+                        <div class="list_ite">
+                            <a href="https://www.vrecruiters.in/devclientcontact">• Web Developer Client</a>
+                            <a href="https://www.vrecruiters.in/desclientcontact">• Web Designer Client</a>
+                        </div>
+                    </a>
+                    <a href="https://www.vrecruiters.in/careercontact">Career Councelling</a>
+                    <a href="https://www.vrecruiters.in/resumecontact">Resume Writing</a>
+                    <a href="https://www.vrecruiters.in/interviewcontact">Interview Preparation</a>
+                    <a href="https://www.vrecruiters.in/digitalmarketingcontact">Digital Marketing</a>
+                </div>
+            </div>
+            <a href="https://www.vrecruiters.in/apply">Apply Now</a>
+            </div>
+
+            <div><a class="admin_Login" href="https://www.vrecruiters.in/admin">Admin</a></div>
+        </nav>
+    </header>
     <div class="page-wrap">
         <div class="advetise-1">
             <span>ads</span>
             <div class="digibeez-ads">
-              <a href="">
-                <img src="http://cdn.jsdelivr.net/gh/Vrecruiter-Project/assets@latest/ads/WhatsApp Image 2025-04-29 at 13.04.51_3d99c84e.jpg" alt="Vrecruiters-ads-img">
-              </a>
+                <a href="">
+                    <img src="http://cdn.jsdelivr.net/gh/Vrecruiter-Project/assets@latest/ads/WhatsApp Image 2025-04-29 at 13.04.51_3d99c84e.jpg"
+                        alt="Vrecruiters-ads-img">
+                </a>
                 <span></span>
             </div>
             <div class="digibeez-ads">
-              <a href="">
-                <img src="./Digibeez_Post_(5)[1].jpg" alt="Vrecruiters-ads-img">
-              </a>
+                <a href="">
+                    <img src="http://cdn.jsdelivr.net/gh/Vrecruiter-Project/assets@latest/ads/industrial_training[1].jpg"
+                        alt="Vrecruiters-ads-img">
+                </a>
                 <span></span>
             </div>
-            <button type="button" class="subscribe-btn">Subscribe</button>
+            <button type="button" class="subscribe-btn">Learn more</button>
         </div>
         <div class="container">
             <div class="hero">
@@ -38,10 +181,11 @@
                     alt="">
                 <div class="hero-Content">
                     <span>Dec/26/25 <span>.</span> Blog</span>
-                    <h1>It is a sample blog post to check, It's for Organic Traffic Purposes.</h1>
-                    <p class="hero-txt">80 days around the world , we'll find a pot of gold just stting where the
-                        rainbow</p>
-                    <a href="/feature/Index.html" target="_blank" class="hero-btn">Continue Reading</a>
+                    <h1>5 Powerful Digital Strategies to Grow Your Business in 2025
+                    </h1>
+                    <p class="hero-txt">Artificial Intelligence (AI) is revolutionizing how businesses interact with
+                        customers.</p>
+                    <a href="./blogs/feature/index.html" target="_blank" class="hero-btn">Continue Reading</a>
                 </div>
             </div>
             <section class="latest-section">
@@ -90,8 +234,8 @@
         <!-- <div>Advertise</div> -->
     </div>
     <script>
-    
-        document.addEventListener("DOMContentLoaded", function() {
+
+        document.addEventListener("DOMContentLoaded", function () {
             const titleMeta = document.querySelector('meta[name="dynamic-title"]');
             if (titleMeta) {
                 document.title = titleMeta.getAttribute("content");

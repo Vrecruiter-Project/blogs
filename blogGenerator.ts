@@ -2,7 +2,6 @@ import OpenAI from 'openai';
 import fs from 'fs';
 import * as dotenv from 'dotenv';
 dotenv.config();
-import axios from 'axios';
 
 interface PexelsPhoto {
   id: number;
@@ -76,21 +75,19 @@ interface BlogContent {
 }
 
 class BlogGenerator {
+  private openai: OpenAI;
   private siteUrl: string;
-  private axiosInstance: any;
 
-
- constructor(apiKey: string, siteUrl: string) {
-    this.siteUrl = siteUrl;
-    this.axiosInstance = axios.create({
-      baseURL: 'https://openrouter.ai/api/v1',
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
+  constructor(apiKey: string, siteUrl: string) {
+    this.openai = new OpenAI({
+      baseURL: process.env.BASE_URL,
+      apiKey: apiKey,
+      defaultHeaders: {
         'HTTP-Referer': siteUrl,
         'X-Title': 'Blog Content Generator',
-        'Content-Type': 'application/json'
-      }
+      },
     });
+    this.siteUrl = siteUrl;
   }
 
   async generateBlogPost(topic: string): Promise<string> {
@@ -142,14 +139,19 @@ class BlogGenerator {
     }
   }
 
+  formattedDate = new Intl.DateTimeFormat('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+  }).format(new Date());
   private createContentPrompt(topic: string): string {
     return `Generate blog content about "${topic}" in RAW JSON format (no Markdown, just pure JSON) with this exact structure:
 {
 "title": "10 Essential [Topic] you should know about",
 "description": "[150-160 character meta description]",
 "keywords": ["keyword1", "keyword2", "keyword3"],
-"author": "Author Name",
-"date": "YYYY-MM-DD",
+"author": "V recruiters",
+"date": ${this.formattedDate},
 "readingTime": "X min read",
 "featuredImage": {
   "url": "https://picsum.photos/600/300?random=1",
@@ -181,35 +183,28 @@ IMPORTANT:
 
 
   private async callOpenRouterAPI(prompt: string): Promise<string> {
+    const completion = await this.openai.chat.completions.create({
+      model: 'deepseek/deepseek-r1-distill-qwen-32b:free',
+      messages: [
+        {
+          role: 'system',
+          content: 'You must respond with ONLY raw JSON output. Do not include any Markdown code blocks or additional text.'
+        },
+        {
+          role: 'user',
+          content: prompt
+        }
+      ],
+      temperature: 0.7,
+      max_tokens: 3000,
+      response_format: { type: 'json_object' }
+    });
 
-    
-    try {
-      const response = await this.axiosInstance.post('/chat/completions', {
-        model: 'openai/gpt-3.5-turbo', // or any other supported model
-        messages: [
-          {
-            role: 'system',
-            content: 'You must respond with ONLY raw JSON output.'
-          },
-          {
-            role: 'user',
-            content: prompt
-          }
-        ],
-        temperature: 0.7,
-        max_tokens: 3000,
-        response_format: { type: 'json_object' }
-      });
-
-      const content = response.data.choices[0]?.message?.content;
-      if (!content) {
-        throw new Error('No content in API response');
-      }
-      return content;
-      
-    } catch (error) {
-      throw error;
+    const content = completion.choices[0]?.message?.content;
+    if (!content) {
+      throw new Error('No content in API response');
     }
+    return content;
   }
 
   private renderTemplate(content: BlogContent): string {
@@ -225,7 +220,7 @@ IMPORTANT:
     <meta property="og:title" content="${content.title}">
     <meta property="og:description" content="${content.description}">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="${this.siteUrl}/blogs/}">
+    <meta property="og:url" content="${this.siteUrl}}">
     <meta property="og:image" content="${content.featuredImage.url}">
     
     <title>${content.title} | My Website</title>
@@ -420,7 +415,7 @@ IMPORTANT:
     <div class="pageWrap">
         <div class="container">
             <nav class="breadcrumb" aria-label="Breadcrumb">
-                <a href="/blogs/"><i class="fa-solid fa-house"></i> Home</a> &raquo; <a href="../feature/Index.html">Blog</a> &raquo; ${content.title}
+                <a href="/"><i class="fa-solid fa-house"></i> Home</a> &raquo; <a href="../feature/index.html">Blog</a> &raquo; ${content.title}
             </nav>
             
             <div class="sidebar-container">
