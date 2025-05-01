@@ -2,12 +2,13 @@ node_modules
 package-lock.json
 .env
 blog_publish_report.md
-blogGenerator.ts
+forLatestedPostgenrator.ts
 run.sh
-runGenerator.ts
+forPopularPostgenrator.ts
 tsconfig.json
 package.json
 prompt.txt
 package-lock.json
 commit.sh
-popular.ts
+runLatestedGenrator.ts
+runPopularGenrator.ts
