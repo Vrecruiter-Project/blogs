@@ -9,3 +9,5 @@ tsconfig.json
 package.json
 prompt.txt
 package-lock.json
+commit.sh
+popular.ts
