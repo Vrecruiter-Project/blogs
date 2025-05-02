@@ -2,175 +2,189 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
-        content="[Your Blog Name] - Discover insightful articles on [your topics] with expert analysis and fresh perspectives. Read our latest blog posts today.">
-    <meta name="keywords" content="[see keyword list below]">
-    <meta name="author" content="Vrecruiters">
-    <meta name="robots" content="index, follow">
-    <title>Home - My Website</title>
+        content="Vrecruiters - Discover insightful articles on any topic with expert analysis and fresh perspectives. Read our latest blog posts today." />
+    <meta name="keywords"
+        content="articles blog, vrecruiters, blog posts, latest articles, insightful articles, expert analysis, fresh perspectives" />
+    <meta name="author" content="Vrecruiters" />
+    <meta name="robots" content="index, follow" />
+    <title>Home - Vrecruiters</title>
     <link rel="icon" href="https://cdn.jsdelivr.net/gh/w3cdpass/static@latest/(blogs)/public/favicon.png"
-        type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="./blogs/style/index.css" />
 
-    <link rel="stylesheet" href="./blogs/style/index.css">
+    <style>
+        header{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        nav {
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
+            border-radius: 999px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-nav a {
+            padding: 10px 15px;
+            font-size: 14px;
+            white-space: nowrap;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            min-width: 200px;
+            flex-direction: column;
+        }
+
+        .dropdown-content a {
+            padding: 10px;
+            display: block;
+            color: #333;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: flex;
+        }
+
+        @media screen and (max-width: 768px) {
+            .logo-container {
+    width: 100%;
+    justify-content: space-between;
+}
+            .hamburger {
+                display: block;
+            }
+
+            .header-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                display: none;
+            }
+
+            .header-nav.show {
+                display: flex;
+            }
+
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: none;
+            }
+
+            .dropdown.open .dropdown-content {
+                display: flex;
+            }
+        }
+    </style>
+
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0XWXJJJTLK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-0XWXJJJTLK');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0XWXJJJTLK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-0XWXJJJTLK');
+    </script>
 </head>
-
-
-<style>
-    .logo_vrec>img {
-        width: 55px;
-        height: 55px;
-        object-fit: cover;
-    }
-
-
-    .dropdown {
-        position: relative;
-        display: inline block;
-
-    }
-
-    .dropdown-content {
-        display: none;
-        width: 200px;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 120px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        margin-top: 10px;
-    }
-
-    .dropdown-content a {
-        color: #333;
-        padding: 15px 16px;
-        text-decoration: none;
-        display: block;
-        margin-top: -12px;
-    }
-
-
-
-    .dropdown:hover .dropdown-content {
-        display: block;
-
-    }
-
-    .home-link {
-        padding-bottom: 20px;
-    }
-
-    header {
-        margin-top: 15px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    header>nav {
-        font-family: Arial, Helvetica, sans-serif;
-        border-radius: 999px;
-        padding-left: 15px;
-        background-color: #fff;
-        box-shadow: 1px 1px 5px 0 #bfbebe;
-        width: 90%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
-    }
-
-    a {
-        text-decoration: none;
-        color: #333;
-    }
-
-    .header-nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .list_ite {
-        font-size: 14px;
-    }
-
-    .list_ite>a {
-        margin-top: -25px;
-    }
-
-    .admin_Login {
-        margin-right: 20px;
-    }
-</style>
 
 <body>
     <header>
-        <nav>
-            <div class="header-nav">
-                <a href="" class="logo_vrec"><img src="https://www.vrecruiters.in/assets/logo_noBgBlack-Cf_903Ap.png"
-                        alt="vrecruiters log"></a>
-                <!-- <a href="">About</a> -->
-                <div class="dropdown">
-                    <a href="#" class="home-link">Services <i class="fa-solid fa-angle-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="">Recruitment Services</a>
-                        <div class="list_ite">
-                            <a href="https://www.vrecruiters.in/recruitment/employers">• Employer</a>
-                            <a href="https://www.vrecruiters.in/recruitment/candidates">• Candidates</a>
-                        </div>
+    <nav>
+        <div class="logo-container">
+            <a href="/" class="logo_vrec">
+                <img src="https://www.vrecruiters.in/assets/logo_noBgBlack-Cf_903Ap.png" alt="Vrecruiters logo"
+                    height="50" />
+            </a>
+            <div class="hamburger" id="hamburger"><i class="fa fa-bars"></i></div>
+        </div>
 
-                        <a href="#">Development Services
-                            <div class="list_ite">
-                                <a href="https://www.vrecruiters.in/">• Web developer</a>
-                                <a href="https://www.vrecruiters.in/">• Web designer</a>
-                            </div>
-                        </a>
-                        <a href="https://www.vrecruiters.in/career">Carreer Councelling</a>
-                        <a href="https://www.vrecruiters.in/interview">InterView Preparation</a>
-                        <a href="https://www.vrecruiters.in/resume">Resume Builder</a>
-                        <a href="https://www.vrecruiters.in/digitalmarketing">Digital Marketing</a>
-                        <a href="https://www.vrecruiters.in/freeconsultation">Free Consultation</a>
-                    </div>
+        <div class="header-nav" id="nav-menu">
+            <div class="dropdown">
+                <a href="#" class="home-link">Services <i class="fa-solid fa-angle-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="">Recruitment Services</a>
+                    <a href="https://www.vrecruiters.in/recruitment/employers">• Employer</a>
+                    <a href="https://www.vrecruiters.in/recruitment/candidates">• Candidates</a>
+                    <a href="https://www.vrecruiters.in/">Development Services</a>
+                    <a href="https://www.vrecruiters.in/">• Web Developer</a>
+                    <a href="https://www.vrecruiters.in/">• Web Designer</a>
+                    <a href="https://www.vrecruiters.in/career">Career Counselling</a>
+                    <a href="https://www.vrecruiters.in/interview">Interview Preparation</a>
+                    <a href="https://www.vrecruiters.in/resume">Resume Builder</a>
+                    <a href="https://www.vrecruiters.in/digitalmarketing">Digital Marketing</a>
+                    <a href="https://www.vrecruiters.in/freeconsultation">Free Consultation</a>
                 </div>
-                <a href="">Community</a>
-                <div class="dropdown">
-                    <a href="#" class="home-link">Contact <i class="fa-solid fa-angle-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="https://www.vrecruiters.in/contact">Services</a>
-                        <a href="https://www.vrecruiters.in/candidatecontact">Candidate</a>
-                        <a href="https://www.vrecruiters.in/companycontact">Employer</a>
-                        <a href="https://www.vrecruiters.in/humanresourcescontact">Human Resources</a>
-                        <a href="">Client Contact
-                            <div class="list_ite">
-                                <a href="https://www.vrecruiters.in/devclientcontact">• Web Developer Client</a>
-                                <a href="https://www.vrecruiters.in/desclientcontact">• Web Designer Client</a>
-                            </div>
-                        </a>
-                        <a href="https://www.vrecruiters.in/careercontact">Career Councelling</a>
-                        <a href="https://www.vrecruiters.in/resumecontact">Resume Writing</a>
-                        <a href="https://www.vrecruiters.in/interviewcontact">Interview Preparation</a>
-                        <a href="https://www.vrecruiters.in/digitalmarketingcontact">Digital Marketing</a>
-                    </div>
-                </div>
-                <a href="https://www.vrecruiters.in/apply">Apply Now</a>
             </div>
 
-            <div><a class="admin_Login" href="https://www.vrecruiters.in/admin">Admin</a></div>
-        </nav>
-    </header>
+            <a href="#">Community</a>
+
+            <div class="dropdown">
+                <a href="#" class="home-link">Contact <i class="fa-solid fa-angle-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="https://www.vrecruiters.in/contact">Services</a>
+                    <a href="https://www.vrecruiters.in/candidatecontact">Candidate</a>
+                    <a href="https://www.vrecruiters.in/companycontact">Employer</a>
+                    <a href="https://www.vrecruiters.in/humanresourcescontact">Human Resources</a>
+                    <a href="https://www.vrecruiters.in/devclientcontact">• Web Developer Client</a>
+                    <a href="https://www.vrecruiters.in/desclientcontact">• Web Designer Client</a>
+                    <a href="https://www.vrecruiters.in/careercontact">Career Counselling</a>
+                    <a href="https://www.vrecruiters.in/resumecontact">Resume Writing</a>
+                    <a href="https://www.vrecruiters.in/interviewcontact">Interview Preparation</a>
+                    <a href="https://www.vrecruiters.in/digitalmarketingcontact">Digital Marketing</a>
+                </div>
+            </div>
+
+            <a href="https://www.vrecruiters.in/apply">Apply Now</a>
+            <a class="admin_Login" href="https://www.vrecruiters.in/admin">Admin</a>
+        </div>
+    </nav>
+</header>
     <div class="page-wrap">
         <div class="advetise-1">
             <span>ads</span>
@@ -192,12 +206,12 @@
         </div>
         <div class="container">
             <div class="hero">
-                <img src="./blogs/tmp/WhatsApp Image 2025-05-01 at 11.39.18 AM.jpeg"
-                    alt="">
+                <img src="./blogs/tmp/WhatsApp Image 2025-05-01 at 11.39.18 AM.jpeg" alt="">
                 <div class="hero-Content">
                     <span>May/5/25 <span>.</span> Blog</span>
                     <h1>How SEO Trends in 2025 Will Shape Your Business Growth</h1>
-                    <p class="hero-txt">Explore how SEO trends in 2025 will shape your business growth and stay ahead of the competition.</p>
+                    <p class="hero-txt">Explore how SEO trends in 2025 will shape your business growth and stay ahead of
+                        the competition.</p>
                     <a href="./blogs/feature/index.html" target="_blank" class="hero-btn">Continue Reading</a>
                 </div>
             </div>
@@ -205,19 +219,19 @@
                 <div class="latest-cotent">Latest</div>
                 <div class="latest-img-Content">
                     <div class="latest-Content-card"> <img
-                            src="./blogs/tmp/WhatsApp Image 2025-05-01 at 11.42.47 AM.jpeg"
-                            alt="">
-                        <a href="./blogs/latest/blog-5-powerful-digital-strategies-to-grow-your-business-in-2025.html">5 Powerful Digital Strategies to Grow Your Business in 2025</a>
+                            src="./blogs/tmp/WhatsApp Image 2025-05-01 at 11.42.47 AM.jpeg" alt="">
+                        <a href="./blogs/latest/blog-5-powerful-digital-strategies-to-grow-your-business-in-2025.html">5
+                            Powerful Digital Strategies to Grow Your Business in 2025</a>
                     </div>
                     <div class="latest-Content-card"> <img
-                            src="https://images.pexels.com/photos/5063561/pexels-photo-5063561.jpeg"
-                            alt="">
-                        <a href="./blogs/latest/blog-how-to-relax-in-difficult-sitituation-to-calm-mind.html">10 Essential Ways to Relax in Difficult Situations to Calm Your Mind</a>
+                            src="https://images.pexels.com/photos/5063561/pexels-photo-5063561.jpeg" alt="">
+                        <a href="./blogs/latest/blog-how-to-relax-in-difficult-sitituation-to-calm-mind.html">10
+                            Essential Ways to Relax in Difficult Situations to Calm Your Mind</a>
                     </div>
                     <div class="latest-Content-card"> <img
-                            src="https://images.pexels.com/photos/16125027/pexels-photo-16125027.jpeg"
-                            alt="">
-                        <a href="./blogs/latest/blog-how-a-website-can-help-to-generate-leads-for-your-sales.html">10 Essential Ways Your Website Can Generate Leads for Sales</a>
+                            src="https://images.pexels.com/photos/16125027/pexels-photo-16125027.jpeg" alt="">
+                        <a href="./blogs/latest/blog-how-a-website-can-help-to-generate-leads-for-your-sales.html">10
+                            Essential Ways Your Website Can Generate Leads for Sales</a>
                     </div>
                 </div>
             </section>
@@ -226,9 +240,9 @@
                 <div class="latest-cotent">Popular</div>
                 <div class="latest-img-Content">
                     <div class="latest-Content-card"> <img
-                            src="./blogs/tmp/WhatsApp Image 2025-05-01 at 11.45.37 AM.jpeg"
-                            alt="">
-                            <a href="./blogs/popular/blog-why-every-small-business-needs-a-strong-branding-strategy.html">Why Every Small Business Needs a Strong Branding Strategy</a>
+                            src="./blogs/tmp/WhatsApp Image 2025-05-01 at 11.45.37 AM.jpeg" alt="">
+                        <a href="./blogs/popular/blog-why-every-small-business-needs-a-strong-branding-strategy.html">Why
+                            Every Small Business Needs a Strong Branding Strategy</a>
                     </div>
                     <!-- <div class="latest-Content-card"> <img
                             src="https://cdn.jsdelivr.net/gh/w3cdpass/static@latest/(blogs)/assets/hero/Screenshot%202025-04-26%20at%2011-10-48%20premium_photo-1734435588155-1d6606d9b6c8%20(JPEG%20Image%201067%20%C3%97%201327%20pixels)%20%E2%80%94%20Scaled%20(57%25).png"
@@ -236,9 +250,9 @@
                         <a href="#">this is subtitle</a>
                     </div> -->
                     <div class="latest-Content-card"> <img
-                            src="./blogs/tmp/WhatsApp Image 2025-05-01 at 12.36.49 PM.jpeg"
-                            alt="">
-                        <a href="./blogs/popular/blog-boost-your-instagram-engagement-with-these-7-proven-tips.html">Boost Your Instagram Engagement with These 7 Proven Tips</a>
+                            src="./blogs/tmp/WhatsApp Image 2025-05-01 at 12.36.49 PM.jpeg" alt="">
+                        <a href="./blogs/popular/blog-boost-your-instagram-engagement-with-these-7-proven-tips.html">Boost
+                            Your Instagram Engagement with These 7 Proven Tips</a>
                     </div>
                 </div>
             </section>
@@ -247,12 +261,25 @@
         <!-- <div>Advertise</div> -->
     </div>
     <script>
-
         document.addEventListener("DOMContentLoaded", function () {
-            const titleMeta = document.querySelector('meta[name="dynamic-title"]');
-            if (titleMeta) {
-                document.title = titleMeta.getAttribute("content");
-            }
+            const hamburger = document.getElementById("hamburger");
+            const navMenu = document.getElementById("nav-menu");
+
+            hamburger.addEventListener("click", () => {
+                navMenu.classList.toggle("show");
+            });
+
+            // Optional: Add dropdown open/close for mobile
+            const dropdowns = document.querySelectorAll('.dropdown > a');
+            dropdowns.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('open');
+                    }
+                });
+            });
         });
     </script>
 </body>
