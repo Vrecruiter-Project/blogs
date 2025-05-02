@@ -12,3 +12,4 @@ package-lock.json
 commit.sh
 runLatestedGenrator.ts
 runPopularGenrator.ts
+*.md
