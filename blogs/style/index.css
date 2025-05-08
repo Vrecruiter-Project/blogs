@@ -356,3 +356,30 @@ footer{
   border-radius: 5px;
   border: #8ad2db;
 }
+
+
+/* responsive */
+
+
+@media (max-width: 1025px) {
+  .container{
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .features_article >img{
+    width: 100%;
+  }
+  .sidebar{
+    width: 100%;
+  }
+}
+
+@media (max-width: 769px) {
+  .features_article >img{
+    width: 100%;
+  }
+
+  .how_DM_wrks{
+    flex-wrap: wrap;
+  }
+}
